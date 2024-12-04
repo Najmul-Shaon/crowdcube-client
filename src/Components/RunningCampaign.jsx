@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RunningCampaign = ({ donation }) => {
   // "id": 3,
@@ -12,6 +13,7 @@ const RunningCampaign = ({ donation }) => {
   //   "status": "Active"
 
   const {
+    id,
     title,
     description,
     startDate,
@@ -37,7 +39,7 @@ const RunningCampaign = ({ donation }) => {
           <div></div>
         </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">See More!!</button>
+          <Link to={`/campaign/${id}`} className="btn btn-primary">See More!!</Link>
         </div>
       </div>
     </div>

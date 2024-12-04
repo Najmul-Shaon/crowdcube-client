@@ -9,6 +9,7 @@ import AllCampaigns from "../Pages/AllCampaigns";
 import AddNewCampaigns from "../Pages/AddNewCampaigns";
 import MyCampaigns from "../Pages/MyCampaigns";
 import MyDonations from "../Pages/MyDonations";
+import Details from "../Pages/Details";
 
 const Router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const Router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () => fetch("donation.json"),
+      },
+      {
+        path: "/campaign/:id",
+        element: <Details></Details>,
       },
       {
         path: "/login",
