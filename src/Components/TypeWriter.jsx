@@ -1,13 +1,14 @@
 import { Typewriter } from "react-simple-typewriter";
 
-const TypeWriter = () => {
+const TypeWriter = ({ content, written }) => {
+  console.log(written);
   return (
     <div className="App">
       <h1 className="text-4xl">
-        Every act of kindness matters{" "}
+        {content}{" "}
         <span className="text-green-400 font-pacifico">
           <Typewriter
-            words={["Donate", "Support", "Impact", "Repeat!"]}
+            words={written}
             loop={50}
             cursor
             cursorStyle="_"

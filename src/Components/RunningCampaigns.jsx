@@ -15,7 +15,10 @@ const RunningCampaigns = () => {
           {donations.runningCampaigns.length}
         </p>
 
-        <TypeWriter></TypeWriter>
+        <TypeWriter
+          content={"Every act of kindness matters"}
+          written={["Donate", "Support", "Impact", "Repeat!"]}
+        ></TypeWriter>
       </div>
       <div className="grid grid-cols-2 gap-6">
         {donations.runningCampaigns.map((donation) => (

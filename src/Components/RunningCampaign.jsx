@@ -21,7 +21,6 @@ const RunningCampaign = ({ donation }) => {
     image,
     status,
   } = donation;
-  console.log(status);
   return (
     <div className="card card-side bg-base-100 shadow-xl border-2 ">
       <figure className="w-1/2 px-4">

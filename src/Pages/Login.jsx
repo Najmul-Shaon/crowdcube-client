@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
+import TypeWriter from "../Components/TypeWriter";
 
 const Login = () => {
   // const emailRef = useRef();
@@ -63,9 +64,9 @@ const Login = () => {
     <div>
       <div className="hero bg-base-200 min-h-screen mt-24 p-8">
         <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl">
-          <h2 className="text-2xl font-bold text-center mt-4 text-green-400">
-            Login Now
-          </h2>
+          <span className="text-2xl font-bold text-center mt-4 text-green-400">
+            <TypeWriter content={" "} written={["Login Now"]}></TypeWriter>
+          </span>
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
               <label className="label">

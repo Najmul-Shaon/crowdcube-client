@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
-import RunningCampaigns from "../Components/RunningCampaigns";
+import SignUp from "../Pages/SignUp";
 import RootLayout from "../RootLayout/RootLayout";
 
 const Router = createBrowserRouter([
@@ -20,6 +20,10 @@ const Router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
       },
     ],
   },
