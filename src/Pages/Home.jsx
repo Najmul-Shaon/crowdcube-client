@@ -4,24 +4,15 @@ import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
 import About from "../Components/About";
 import Team from "../Components/Team";
+import RunningCampaigns from "../Components/RunningCampaigns";
 
 const Home = () => {
   return (
     <>
-      <header className="container mx-auto font-poppins">
-        <nav>
-          <NavBar></NavBar>
-        </nav>
-        <Banner></Banner>
-      </header>
-      <main className="min-h-screen font-poppins">
-        <Outlet></Outlet>
-        <About></About>
-        <Team></Team>
-      </main>
-      <footer className="mt-24 font-poppins">
-        <Footer></Footer>
-      </footer>
+      <Banner></Banner>
+      <RunningCampaigns></RunningCampaigns>
+      <About></About>
+      <Team></Team>
     </>
   );
 };

@@ -71,7 +71,7 @@ const Team = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mb-12">
         <Link className="btn bg-green-400 border-none text-white font-semibold text-lg animate__animated animate__pulse animate__duration-3s">
           See All Volunteers
         </Link>
