@@ -4,6 +4,11 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import RootLayout from "../RootLayout/RootLayout";
+import PrivateRoute from "./PrivateRoute";
+import AllCampaigns from "../Pages/AllCampaigns";
+import AddNewCampaigns from "../Pages/AddNewCampaigns";
+import MyCampaigns from "../Pages/MyCampaigns";
+import MyDonations from "../Pages/MyDonations";
 
 const Router = createBrowserRouter([
   {
@@ -24,6 +29,37 @@ const Router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/allCampaigns",
+        element: <AllCampaigns></AllCampaigns>,
+      },
+      {
+        path: "/addnewcampaigns",
+        element: (
+          <PrivateRoute>
+            <AddNewCampaigns></AddNewCampaigns>
+          </PrivateRoute>
+        ),
+        // element: <AddNewCampaigns></AddNewCampaigns>,
+      },
+      {
+        path: "/mycampaigns",
+        element: (
+          <PrivateRoute>
+            <MyCampaigns></MyCampaigns>
+          </PrivateRoute>
+        ),
+        // element: <MyCampaigns></MyCampaigns>,
+      },
+      {
+        path: "/mydonations",
+        element: (
+          <PrivateRoute>
+            <MyDonations></MyDonations>
+          </PrivateRoute>
+        ),
+        // element: <MyDonations></MyDonations>,
       },
     ],
   },

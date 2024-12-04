@@ -2,63 +2,62 @@ import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
-// import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import TypeWriter from "../Components/TypeWriter";
 
 const Login = () => {
-  // const emailRef = useRef();
+  const emailRef = useRef();
 
-  // const { userLoginWithEmailAndPass, setUser, auth, setEmail } =
-  //   useContext(AuthContext);
+  const { userLoginWithEmailAndPass, setUser, auth, setEmail } =
+    useContext(AuthContext);
   const [showPass, setShowPass] = useState(false);
 
-  // const provider = new GoogleAuthProvider();
-  // const location = useLocation();
-  // const navigate = useNavigate();
+  const provider = new GoogleAuthProvider();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // const logInWithGoogle = () => {
-  //   signInWithPopup(auth, provider)
-  //     .then((result) => {
-  //       setUser(result.user);
-  //       toast.success("Welcome!");
-  //       navigate(location?.state ? location.state : "/");
-  //     })
-  //     .catch((error) => {
-  //       const errorMsg = error.message;
-  //       toast.error(errorMsg);
-  //     });
-  // };
+  const logInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        setUser(result.user);
+        toast.success("Welcome!");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        const errorMsg = error.message;
+        toast.error(errorMsg);
+      });
+  };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
+  // form submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  //   const form = new FormData(e.target);
-  //   const email = form.get("email");
-  //   const password = form.get("password");
+    const form = new FormData(e.target);
+    const email = form.get("email");
+    const password = form.get("password");
 
-  //   userLoginWithEmailAndPass(email, password)
-  //     .then((result) => {
-  //       const user = result.user;
-  //       toast.success("Welcome!");
-  //       setUser(user);
-  //       navigate(location?.state ? location.state : "/");
-  //     })
-  //     .catch((error) => {
-  //       const errorMessage = error.message;
-  //       toast.error(errorMessage);
-  //     });
-  // };
+    console.log(email, password);
+
+    userLoginWithEmailAndPass(email, password)
+      .then((result) => {
+        const user = result.user;
+        toast.success("Welcome!");
+        setUser(user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  };
 
   // const handleForget = (emailRef) => {
   //   setEmail(emailRef.current.value);
   // };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <div>
@@ -112,30 +111,9 @@ const Login = () => {
                 )}
               </button>
               <label className="label">
-                {/* <Link
-                  to="/forgetPass"
-                  onClick={() => {
-                    handleForget(email);
-                  }}
-                  className="label-text-alt link link-hover"
-                >
-                  Forgot password?
-                </Link> */}
-                <Link
-                  to="/forgetPass"
-                  className="label-text-alt link link-hover"
-                >
+                <Link className="label-text-alt link link-hover">
                   Forgot password?
                 </Link>
-                {/* <Link
-                  to="/forgetPass"
-                  onClick={() => {
-                    handleForget(emailRef);
-                  }}
-                  className="label-text-alt link link-hover"
-                >
-                  Forgot password?
-                </Link> */}
               </label>
             </div>
             <div className="form-control mt-6">
@@ -157,15 +135,12 @@ const Login = () => {
             <h2 className="text-2xl font-bold text-center mt-4 text-green-400">
               Login with Google
             </h2>
-            <button className="btn text-2xl text-[#4285F4]">
-              <FaGoogle></FaGoogle>
-            </button>
-            {/* <button
+            <button
               onClick={logInWithGoogle}
               className="btn text-2xl text-[#4285F4]"
             >
               <FaGoogle></FaGoogle>
-            </button> */}
+            </button>
           </div>
         </div>
       </div>

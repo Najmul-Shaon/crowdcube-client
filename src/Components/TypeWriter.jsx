@@ -1,7 +1,6 @@
 import { Typewriter } from "react-simple-typewriter";
 
 const TypeWriter = ({ content, written }) => {
-  console.log(written);
   return (
     <div className="App">
       <h1 className="text-4xl">
