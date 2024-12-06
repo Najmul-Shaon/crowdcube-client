@@ -35,20 +35,24 @@ const AllCampaigns = () => {
             </tr>
           </thead>
           <tbody>
-            {allCampaigns.map((campaign, i) => (
-              <tr>
-                <th>{i + 1}</th>
-                <td>{campaign.title}</td>
-                <td>{campaign.selectVal}</td>
-                <td>{campaign.deadline}</td>
-                <td>{campaign.email}</td>
-                <td>
-                  <Link to={`/campaign/${campaign._id}`} className="btn">
-                    See More
-                  </Link>
-                </td>
-              </tr>
-            ))}
+            {allCampaigns.length === 0 ? (
+              <h3>No Campaigns Available</h3>
+            ) : (
+              allCampaigns.map((campaign, i) => (
+                <tr>
+                  <th>{i + 1}</th>
+                  <td>{campaign.title}</td>
+                  <td>{campaign.selectVal}</td>
+                  <td>{campaign.deadline}</td>
+                  <td>{campaign.email}</td>
+                  <td>
+                    <Link to={`/campaign/${campaign._id}`} className="btn">
+                      See More
+                    </Link>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
