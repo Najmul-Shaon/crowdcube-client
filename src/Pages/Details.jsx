@@ -1,6 +1,16 @@
-import React from "react";
-
 const Details = () => {
+  //  {
+  //       "id": 1,
+  //       "title": "Flood Relief for Noakhali",
+  //       "description": "Help provide essential supplies and support for flood-affected families in Noakhali, Bangladesh.",
+  //       "startDate": "2024-11-01",
+  //       "endDate": "2024-12-31",
+  //       "goalAmount": 50000,
+  //       "raisedAmount": 23000,
+  //       "image": "https://i.ibb.co.com/KKGVJ8B/donate-image.jpg",
+  //       "status": "Active"
+  //     },
+
   return (
     <div className="card container mx-auto w-96 shadow-xl">
       <figure>
@@ -16,8 +26,7 @@ const Details = () => {
         </h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+          <button className="btn btn-primary">Donate</button>
         </div>
       </div>
     </div>
