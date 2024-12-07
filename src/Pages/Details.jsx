@@ -20,14 +20,23 @@ const Details = () => {
   // "deadline": "2024-12-21",
   // "email": "b@gmail.com",
   // "name": "null"
-  const userData = { displayName, email };
+  const newDonate = {
+    displayName,
+    email,
+    photo,
+    title,
+    selectVal,
+    description,
+    amount,
+    deadline,
+  };
   const handleDonate = (id) => {
     fetch("http://localhost:5000/donated", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userData),
+      body: JSON.stringify(newDonate),
     })
       .then((res) => res.json())
       .then((data) => {

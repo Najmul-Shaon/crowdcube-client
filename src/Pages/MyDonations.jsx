@@ -1,10 +1,33 @@
+import { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import MyDonation from "./MyDonation";
 
 const MyDonations = () => {
-    return (
-      <div>
-        <h3 className="text-4xl text-center">My donations</h3>
+  const allDonations = useLoaderData();
+  const { user } = useContext(AuthContext);
+
+  const myDonations = allDonations.filter(
+    (donation) => donation.email === user.email
+  );
+
+  console.log(allDonations);
+
+  // const [myRemainingCampaigns, setMyRemainingCampaigns] =
+  //   useFormStatus(myCampaigns);
+
+  return (
+    <div>
+      <h3 className="text-center my-6 text-3xl font-semibold">
+        My <span className="font-pacifico text-green-400">Donations</span>{" "}
+      </h3>
+      <div className="grid grid-cols-4 container mx-auto gap-6 my-24">
+        {myDonations.map((myDonation) => (
+          <MyDonation key={myDonation._id} myDonation={myDonation}></MyDonation>
+        ))}
       </div>
-    );
+    </div>
+  );
 };
 
 export default MyDonations;
