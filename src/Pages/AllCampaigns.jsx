@@ -1,19 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
-
+import { Tooltip } from "react-tooltip";
 const AllCampaigns = () => {
   const allCampaigns = useLoaderData();
-
-  // {
-  //     "_id": "67532ccd162d800ad8360b61",
-  //     "photo": "https://i.ibb.co.com/zxGw5Ss/1.png",
-  //     "title": "adaff",
-  //     "selectVal": "Startup",
-  //     "description": "fafe",
-  //     "amount": "2",
-  //     "deadline": "2024-12-07",
-  //     "email": "b@gmail.com",
-  //     "name": "null"
-  //   },
 
   return (
     <div className="container mx-auto mt-12">
@@ -40,7 +28,12 @@ const AllCampaigns = () => {
               <h3>No Campaigns Available</h3>
             ) : (
               allCampaigns.map((campaign, i) => (
-                <tr key={campaign._id}>
+                <tr
+                  key={campaign._id}
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={campaign.title}
+                  className="hover:bg-gray-200"
+                >
                   <th>{i + 1}</th>
                   <td>{campaign.title}</td>
                   <td>{campaign.selectVal}</td>
@@ -61,6 +54,7 @@ const AllCampaigns = () => {
           </tbody>
         </table>
       </div>
+      <Tooltip id="my-tooltip" />
     </div>
   );
 };

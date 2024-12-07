@@ -4,6 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { AiOutlineDelete } from "react-icons/ai";
 import { HiDotsVertical } from "react-icons/hi";
 import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const MyCampaigns = () => {
   const allCampaigns = useLoaderData();
@@ -74,7 +75,12 @@ const MyCampaigns = () => {
               <h3 className="text-center">No Campaigns Available</h3>
             ) : (
               myRemainingCampaigns.map((campaign, i) => (
-                <tr key={campaign._id}>
+                <tr
+                  key={campaign._id}
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={campaign.title}
+                  className="hover:bg-gray-200"
+                >
                   <th>{i + 1}</th>
                   <td>{campaign.title}</td>
                   <td>{campaign.selectVal}</td>
@@ -85,12 +91,16 @@ const MyCampaigns = () => {
                     <Link
                       to={`update/${campaign._id}`}
                       className="btn btn-xs btn-outline text-xl"
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content="Update"
                     >
                       <HiDotsVertical></HiDotsVertical>
                     </Link>
                     <Link
                       onClick={() => handleDelete(campaign._id)}
                       className="btn btn-xs btn-outline text-xl"
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content="Delete"
                     >
                       <AiOutlineDelete></AiOutlineDelete>
                     </Link>
