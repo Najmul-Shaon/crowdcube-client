@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Details = () => {
+  const { user } = useContext(AuthContext);
+  const { displayName, email } = user;
+
   const singleCampaign = useLoaderData();
-  const { photo, title, selectVal, description, amount, deadline } =
+  const { _id, photo, title, selectVal, description, amount, deadline } =
     singleCampaign;
-  console.log(singleCampaign);
+  // console.log(singleCampaign);
   // "_id": "6753f614e07c82d68959546e",
   // "photo": "https://i.ibb.co.com/zxGw5Ss/1.png",
   // "title": "Academic Advisors: Regularly",
@@ -14,6 +20,27 @@ const Details = () => {
   // "deadline": "2024-12-21",
   // "email": "b@gmail.com",
   // "name": "null"
+  const userData = { displayName, email };
+  const handleDonate = (id) => {
+    fetch("http://localhost:5000/donated", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Alhamdulillah!",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
+      });
+  };
 
   return (
     <div className="card container mx-auto w-96 shadow-xl">
@@ -38,7 +65,9 @@ const Details = () => {
           </button>
         </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Donate</button>
+          <button onClick={() => handleDonate(_id)} className="btn btn-primary">
+            Donate
+          </button>
         </div>
       </div>
     </div>
