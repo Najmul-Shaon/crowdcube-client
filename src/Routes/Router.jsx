@@ -62,6 +62,7 @@ const Router = createBrowserRouter([
             <MyCampaigns></MyCampaigns>
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:5000/myCampaigns"),
         // element: <MyCampaigns></MyCampaigns>,
       },
       {

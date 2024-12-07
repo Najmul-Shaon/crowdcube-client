@@ -29,6 +29,7 @@ const AllCampaigns = () => {
               <th className="text-base">Sl</th>
               <th className="text-base">Title</th>
               <th className="text-base">Type</th>
+              <th className="text-base">Amount</th>
               <th className="text-base">End Time</th>
               <th className="text-base">Create by</th>
               <th className="text-base">Actions</th>
@@ -43,10 +44,14 @@ const AllCampaigns = () => {
                   <th>{i + 1}</th>
                   <td>{campaign.title}</td>
                   <td>{campaign.selectVal}</td>
+                  <td>${campaign.amount}</td>
                   <td>{campaign.deadline}</td>
                   <td>{campaign.email}</td>
                   <td>
-                    <Link to={`/campaign/${campaign._id}`} className="btn btn-sm btn-outline">
+                    <Link
+                      to={`/campaign/${campaign._id}`}
+                      className="btn btn-sm btn-outline"
+                    >
                       See More
                     </Link>
                   </td>

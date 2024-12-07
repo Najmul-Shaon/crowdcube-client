@@ -92,16 +92,10 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("user added to db", data);
-
             toast.success("Welcome!!");
             setUser(user);
             navigate("/");
           });
-
-        // toast.success("Welcome!!");
-        // setUser(user);
-        // navigate("/");
       })
       .catch((e) => {
         const errorMessage = e.message;
