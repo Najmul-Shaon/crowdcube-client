@@ -21,7 +21,7 @@ const RunningCampaigns = () => {
       </div>
       <div className="grid grid-cols-2 gap-6">
         {notExpiredDontaions.map((donation) => (
-          <RunningCampaign donation={donation}></RunningCampaign>
+          <RunningCampaign key={donation._id} donation={donation}></RunningCampaign>
         ))}
       </div>
     </div>

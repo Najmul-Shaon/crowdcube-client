@@ -73,12 +73,35 @@ const SignUp = () => {
       return;
     }
 
+    const newUser = {
+      name,
+      email,
+      photo,
+    };
+
     createNewUser(email, password)
       .then((result) => {
         const user = result.user;
-        toast.success("Welcome!!");
-        setUser(user);
-        navigate("/");
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("user added to db", data);
+
+            toast.success("Welcome!!");
+            setUser(user);
+            navigate("/");
+          });
+
+        // toast.success("Welcome!!");
+        // setUser(user);
+        // navigate("/");
       })
       .catch((e) => {
         const errorMessage = e.message;
