@@ -39,14 +39,14 @@ const AllCampaigns = () => {
               <h3>No Campaigns Available</h3>
             ) : (
               allCampaigns.map((campaign, i) => (
-                <tr>
+                <tr key={campaign._id}>
                   <th>{i + 1}</th>
                   <td>{campaign.title}</td>
                   <td>{campaign.selectVal}</td>
                   <td>{campaign.deadline}</td>
                   <td>{campaign.email}</td>
                   <td>
-                    <Link to={`/campaign/${campaign._id}`} className="btn">
+                    <Link to={`/campaign/${campaign._id}`} className="btn btn-sm btn-outline">
                       See More
                     </Link>
                   </td>
