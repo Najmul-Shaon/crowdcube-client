@@ -36,7 +36,11 @@ const Home = () => {
   }, [isDarkMode]);
 
   return (
-    <div className={`${isDarkMode ? "dark bg-slate-200" : ""} min-h-screen`}>
+    <div
+      className={`${
+        isDarkMode ? "dark bg-slate-200" : ""
+      } min-h-screen container mx-auto`}
+    >
       <div className="flex items-center justify-end p-4 pt-4">
         <label className="flex items-center gap-2">
           <span className="text-sm text-gray-800 dark:text-gray-200">
