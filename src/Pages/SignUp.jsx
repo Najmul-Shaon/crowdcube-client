@@ -83,7 +83,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://crowncube-server.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

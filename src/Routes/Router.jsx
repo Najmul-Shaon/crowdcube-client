@@ -22,7 +22,7 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000"),
+        loader: () => fetch("https://crowncube-server.vercel.app"),
       },
       {
         path: "/campaign/:id",
@@ -32,7 +32,7 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/campaign/${params.id}`),
+          fetch(`https://crowncube-server.vercel.app/campaign/${params.id}`),
       },
       {
         path: "/login",
@@ -45,7 +45,7 @@ const Router = createBrowserRouter([
       {
         path: "/allCampaigns",
         element: <AllCampaigns></AllCampaigns>,
-        loader: () => fetch("http://localhost:5000/allCampaigns"),
+        loader: () => fetch("https://crowncube-server.vercel.app/allCampaigns"),
       },
       {
         path: "/addnewcampaigns",
@@ -63,7 +63,7 @@ const Router = createBrowserRouter([
             <MyCampaigns></MyCampaigns>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/myCampaigns"),
+        loader: () => fetch("https://crowncube-server.vercel.app/myCampaigns"),
       },
       {
         path: "/mydonations",
@@ -72,7 +72,7 @@ const Router = createBrowserRouter([
             <MyDonations></MyDonations>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/mydonations"),
+        loader: () => fetch("https://crowncube-server.vercel.app/mydonations"),
       },
 
       {
@@ -83,7 +83,9 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/myCampaigns/update/${params.id}`),
+          fetch(
+            `https://crowncube-server.vercel.app/myCampaigns/update/${params.id}`
+          ),
       },
     ],
   },

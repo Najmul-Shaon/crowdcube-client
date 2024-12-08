@@ -11,17 +11,6 @@ const UpdateCampaign = () => {
   const data = useLoaderData();
 
   const { amount, deadline, description, photo, title } = data;
-  // amount: "1111";
-  // deadline: "2025-01-09";
-  // description: "Academic Advisors: Regularly consult with your academic advisor for guidance on course selection and degree requirements.";
-  // email: "c@gmail.com";
-  // name: "null";
-  // photo: "https://i.ibb.co.com/TPsNWPt/linkedin-sales-solutions-p-At-A8xe-i-VM-unsplash.jpg";
-  // selectVal: "Personal Issue";
-  // title: "fadfadf ";
-  // _id: "675464b0dbd896ca8d250442";
-
-  console.log(data);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -45,7 +34,7 @@ const UpdateCampaign = () => {
       name,
     };
 
-    fetch(`http://localhost:5000/myCampaigns/update/${id}`, {
+    fetch(`https://crowncube-server.vercel.app/myCampaigns/update/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +43,6 @@ const UpdateCampaign = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
@@ -64,7 +52,6 @@ const UpdateCampaign = () => {
           });
         }
       });
-    console.log(newCampaign);
   };
 
   const handleSelect = (e) => {

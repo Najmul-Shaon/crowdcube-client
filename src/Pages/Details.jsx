@@ -4,22 +4,19 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Details = () => {
+  let today = new Date();
+  const dd = String(today.getDate()).padStart(2, "0");
+  const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  const yyyy = today.getFullYear();
+
+  today = yyyy + "-" + mm + "-" + dd;
+
   const { user } = useContext(AuthContext);
   const { displayName, email } = user;
 
   const singleCampaign = useLoaderData();
   const { _id, photo, title, selectVal, description, amount, deadline } =
     singleCampaign;
-  // console.log(singleCampaign);
-  // "_id": "6753f614e07c82d68959546e",
-  // "photo": "https://i.ibb.co.com/zxGw5Ss/1.png",
-  // "title": "Academic Advisors: Regularly",
-  // "selectVal": "Business",
-  // "description": "Academic Advisors: Regularly consult with your academic advisor for guidance on course selection and degree requirements.",
-  // "amount": "800",
-  // "deadline": "2024-12-21",
-  // "email": "b@gmail.com",
-  // "name": "null"
   const newDonate = {
     displayName,
     email,
@@ -30,25 +27,33 @@ const Details = () => {
     amount,
     deadline,
   };
+
   const handleDonate = (id) => {
-    fetch("http://localhost:5000/donated", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newDonate),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Alhamdulillah!",
-            icon: "success",
-            confirmButtonText: "Ok",
-          });
-        }
+    if (deadline > today) {
+      fetch("https://crowncube-server.vercel.app/donated", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newDonate),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            Swal.fire({
+              title: "Alhamdulillah!",
+              icon: "success",
+              confirmButtonText: "Ok",
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Sorry! Time's up.",
+        icon: "error",
+        confirmButtonText: "Ok",
       });
+    }
   };
 
   return (

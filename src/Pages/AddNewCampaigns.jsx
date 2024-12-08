@@ -29,7 +29,7 @@ const AddNewCampaigns = () => {
       name,
     };
 
-    fetch("http://localhost:5000/addNewCampaigns", {
+    fetch("https://crowncube-server.vercel.app/addNewCampaigns", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +38,6 @@ const AddNewCampaigns = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
@@ -48,8 +47,6 @@ const AddNewCampaigns = () => {
           });
         }
       });
-    // reset();
-    console.log(newCampaign);
   };
 
   const handleSelect = (e) => {

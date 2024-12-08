@@ -11,7 +11,6 @@ const MyDonations = () => {
     (donation) => donation.email === user.email
   );
 
-  console.log(allDonations);
 
   // const [myRemainingCampaigns, setMyRemainingCampaigns] =
   //   useFormStatus(myCampaigns);

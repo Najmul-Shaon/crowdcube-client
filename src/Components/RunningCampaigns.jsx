@@ -2,11 +2,11 @@ import { useLoaderData } from "react-router-dom";
 import RunningCampaign from "./RunningCampaign";
 import TypeWriter from "./TypeWriter";
 
-const RunningCampaigns = () => {
+const RunningCampaigns = ({ isDarkMode }) => {
   const notExpiredDontaions = useLoaderData();
 
   return (
-    <div className="container mx-auto my-24">
+    <div className="container mx-auto my-24 p-4">
       <div className="text-center space-y-4 my-6">
         <p className="text-xl text-center">
           Running{" "}
@@ -19,9 +19,13 @@ const RunningCampaigns = () => {
           written={["Donate", "Support", "Impact", "Repeat!"]}
         ></TypeWriter>
       </div>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {notExpiredDontaions.map((donation) => (
-          <RunningCampaign key={donation._id} donation={donation}></RunningCampaign>
+          <RunningCampaign
+            key={donation._id}
+            donation={donation}
+            isDarkMode={isDarkMode}
+          ></RunningCampaign>
         ))}
       </div>
     </div>

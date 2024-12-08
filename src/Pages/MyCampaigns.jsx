@@ -4,7 +4,6 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { AiOutlineDelete } from "react-icons/ai";
 import { HiDotsVertical } from "react-icons/hi";
 import Swal from "sweetalert2";
-import { Tooltip } from "react-tooltip";
 
 const MyCampaigns = () => {
   const allCampaigns = useLoaderData();
@@ -27,12 +26,11 @@ const MyCampaigns = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://crowncube-server.vercel.app/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("deeleted", data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -90,7 +88,7 @@ const MyCampaigns = () => {
                   <td className="space-x-2 flex items-center">
                     <Link
                       to={`update/${campaign._id}`}
-                      className="btn btn-xs btn-outline text-xl"
+                      className="btn btn-sm btn-outline text-xl bg-green-400 text-white"
                       data-tooltip-id="my-tooltip"
                       data-tooltip-content="Update"
                     >
@@ -98,7 +96,7 @@ const MyCampaigns = () => {
                     </Link>
                     <Link
                       onClick={() => handleDelete(campaign._id)}
-                      className="btn btn-xs btn-outline text-xl"
+                      className="btn btn-sm btn-outline text-xl bg-orange-600 text-white"
                       data-tooltip-id="my-tooltip"
                       data-tooltip-content="Delete"
                     >

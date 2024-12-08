@@ -5,12 +5,13 @@ const AllCampaigns = () => {
   const data = useLoaderData();
 
   const [sort, setSort] = useState("");
-  // console.log(sort);
 
   const [allCampaigns, SetAllCampaigns] = useState(data);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allCampaigns?sort=${sort}`).then((res) =>
+    fetch(
+      `https://crowncube-server.vercel.app/allCampaigns?sort=${sort}`
+    ).then((res) =>
       res.json().then((data) => {
         SetAllCampaigns(data);
       })

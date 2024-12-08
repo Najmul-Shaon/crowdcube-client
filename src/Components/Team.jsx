@@ -6,7 +6,7 @@ import { IoIosHeartHalf } from "react-icons/io";
 import { Link } from "react-router-dom";
 import "animate.css";
 
-const Team = () => {
+const Team = ({ isDarkMode }) => {
   return (
     <div>
       <div className="flex flex-col items-center space-y-4">
@@ -31,7 +31,13 @@ const Team = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12 mx-auto w-10/12">
-        <div data-aos="zoom-in-down" className="card bg-base-100 shadow-xl">
+        <div
+          data-aos="zoom-in-down"
+          className={`${
+            isDarkMode ? "dark bg-stone-500 text-white" : "bg-base-100"
+          } card shadow-xl`}
+        >
+          {/* <div data-aos="zoom-in-down" className="card bg-base-100 shadow-xl"> */}
           <figure className="p-5">
             <img src={profilePic} alt="Shoes" className="rounded-xl" />
           </figure>
@@ -44,7 +50,12 @@ const Team = () => {
             </div>
           </div>
         </div>
-        <div data-aos="zoom-in-down" className="card bg-base-100 shadow-xl">
+        <div
+          data-aos="zoom-in-down"
+          className={`${
+            isDarkMode ? "dark bg-stone-500 text-white" : "bg-base-100"
+          } card shadow-xl`}
+        >
           <figure className="p-5">
             <img src={profilePic} alt="Shoes" className="rounded-xl" />
           </figure>
@@ -57,7 +68,12 @@ const Team = () => {
             </div>
           </div>
         </div>
-        <div data-aos="zoom-in-down" className="card bg-base-100  shadow-xl">
+        <div
+          data-aos="zoom-in-down"
+          className={`${
+            isDarkMode ? "dark bg-stone-500 text-white" : "bg-base-100"
+          } card shadow-xl`}
+        >
           <figure className="p-5">
             <img src={profilePic} alt="Shoes" className="rounded-xl" />
           </figure>

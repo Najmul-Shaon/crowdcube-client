@@ -40,8 +40,6 @@ const Login = () => {
     const email = form.get("email");
     const password = form.get("password");
 
-    console.log(email, password);
-
     userLoginWithEmailAndPass(email, password)
       .then((result) => {
         const user = result.user;
