@@ -1,14 +1,35 @@
+import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 const AllCampaigns = () => {
-  const allCampaigns = useLoaderData();
+  const data = useLoaderData();
+
+  const [sort, setSort] = useState("");
+  // console.log(sort);
+
+  const [allCampaigns, SetAllCampaigns] = useState(data);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/allCampaigns?sort=${sort}`).then((res) =>
+      res.json().then((data) => {
+        SetAllCampaigns(data);
+      })
+    );
+  }, [sort]);
 
   return (
     <div className="container mx-auto mt-12">
       <h3 className="text-center my-6 text-3xl font-semibold">
-        All <span className="font-pacifico text-green-400">Campaigns</span>{" "}
-        {allCampaigns.length}
+        All <span className="font-pacifico text-green-400">Campaigns</span>
       </h3>
+      <div className="flex justify-end">
+        <button
+          onClick={() => setSort("sortViaAmount")}
+          className="btn btn-outline text-green-400"
+        >
+          Sort by Amount
+        </button>
+      </div>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

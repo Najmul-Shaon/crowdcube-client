@@ -50,6 +50,7 @@ const AuthProvider = ({ children }) => {
     email,
     setEmail,
     resetPass,
+    setLoading,
   };
 
   useEffect(() => {
