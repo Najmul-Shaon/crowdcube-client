@@ -1,57 +1,172 @@
-# CrowdPower
+# **Crowd Cube**
 
-## Purpose
+Crowd Cube is a user-friendly donation platform that enables users to create, manage, and contribute to fundraising campaigns. With an intuitive interface, secure authentication, and a robust set of features, Crowd Cube makes fundraising accessible for everyone. [view](https://crowd-1342c.firebaseapp.com/)
 
-### This website is designed to:
+## **Table of Contents**
 
-- Provide a user-friendly platform for making donations to various causes.
-- Display a banner, running campaigns, about section, and team members on the Home page to inform and engage users.
-- Show all campaigns as table on the All Campaigns page, allowing users to choose and contribute to specific causes (donations restricted to logged-in users).
-- Add New Campaigns by the valid (logged in) users for collecting the fund.
-- Logged in user can view his contribute and his campaigns by My Donatins and My Campaigns page.
-- Enable users to log in securely via email/password or Gmail, with an option to reset their password if needed.
+- [Features](#features)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Dependencies](#dependencies)
+- [Development](#development)
+- [License](#license)
 
-## Live site
+## **Features**
 
-- You can access the live site here: [Live Website](https://simple-firebase-fa91e.web.app/)
+- **Home Page:** Displays a banner, active campaigns, an about section, and team details.
+- **All Campaigns Page:** Lists all available campaigns, allowing logged-in users to contribute.
+- **Campaign Creation:** Verified users can create new fundraising campaigns.
+- **Donation Tracking:** Users can view their contributions on the **My Donations** page.
+- **Campaign Management:** Users can track their own campaigns via the **My Campaigns** page.
+- **Secure Authentication:** Supports login via email/password and Google authentication using Firebase.
+- **Interactive UI:** Built with React, TailwindCSS, and DaisyUI for a modern and smooth user experience.
 
-## Key Features
+## 🎨 Tech Stack
 
-1. Home Page:
+<h4 align="left">Frontend</h4>
 
-   - Includes a dynamic banner with a slider to grab user attention.
-   - Dispaly running campaigns to attrac the donners.
-   - Provides an "About" section to introduce the platform's mission and vision.
-   - Highlights team members to build trust and transparency.
+<div align="left">
+  <img src="https://skillicons.dev/icons?i=html" height="40" alt="html5 logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=css" height="40" alt="css3 logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=tailwind" height="40" alt="tailwindcss logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=js" height="40" alt="javascript logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=react" height="40" alt="react logo"  />
+  <img width="12" />
+</div>
 
-2. All Campaigns Page:
+<h4 align="left">Backend</h4>
 
-   - Displays a variety of donation tables for users to select from.
-   - Ensures that only logged-in users can proceed with donations for secure transactions.
+<div align="left">
 
-3. Add New Campaigns Page:
+  <img src="https://skillicons.dev/icons?i=nodejs" height="40" alt="nodejs logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=express" height="40" alt="express logo"  />
+  <img width="12" />
+  
+</div>
+<h4 align="left">Database</h4>
 
-   - Allows users to publish a new campagn.
+<div align="left">
 
-4. Login Page:
+  <img src="https://skillicons.dev/icons?i=mongodb" height="40" alt="mongodb logo"  />
+  
+</div>
+<h4 align="left">Authentication</h4>
 
-   - Provides login options using email/password or directly through Gmail.
-   - Includes a password reset feature for easy account recovery.
+<div align="left">
+  <img src="https://skillicons.dev/icons?i=firebase" height="40" alt="firebase logo"  />
+</div>
 
-5. Responsive Design:
+## **Installation**
 
-   - Fully responsive layout to ensure a smooth user experience on all devices.
+To set up the project locally:
 
-6. Secure Transactions:
+1. Clone the repository:
 
-   - Restricts donations to logged-in users to maintain security and accountability.
+   ```sh
+   git clone https://github.com/Najmul-Shaon/crowdcube-client.git
+   cd crowdcube-client
+   ```
 
-7. User-Friendly Interface:
-   - Designed with simplicity and clarity to ensure an intuitive user experience.
+2. Install dependencies:
 
-## npm packges
+   ```sh
+   npm install
+   ```
 
-- aos package
-- animate.css
-- react-simple-typewriter
-- react tooltip
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
+
+## **Configuration**
+
+Crowd Cube uses Firebase for authentication and storage. Create a `.env.local` file in the project root and add the following environment variables:
+
+```
+VITE_apiKey=YOUR_FIREBASE_API_KEY
+VITE_authDomain=YOUR_FIREBASE_AUTH_DOMAIN
+VITE_projectId=YOUR_FIREBASE_PROJECT_ID
+VITE_storageBucket=YOUR_FIREBASE_STORAGE_BUCKET
+VITE_messagingSenderId=YOUR_FIREBASE_MESSAGING_SENDER_ID
+VITE_appId=YOUR_FIREBASE_APP_ID
+```
+
+Replace the placeholder values with your actual Firebase project credentials.
+
+## **Usage**
+
+- **View campaigns**: Browse all active campaigns and select one to donate.
+- **Contribute**: Logged-in users can make donations.
+- **Create campaigns**: Verified users can start their own fundraising campaigns.
+- **Manage donations**: Users can track their contributions on the **My Donations** page.
+- **Manage campaigns**: Campaign creators can monitor their fundraising progress on **My Campaigns**.
+
+## **Dependencies**
+
+### **Main Dependencies**
+
+| Package                   | Version  |
+| ------------------------- | -------- |
+| `animate.css`             | ^4.1.1   |
+| `aos`                     | ^2.3.4   |
+| `firebase`                | ^11.2.0  |
+| `localforage`             | ^1.10.0  |
+| `match-sorter`            | ^8.0.0   |
+| `react`                   | ^18.3.1  |
+| `react-awesome-slider`    | ^4.1.0   |
+| `react-dom`               | ^18.3.1  |
+| `react-hot-toast`         | ^2.4.1   |
+| `react-icons`             | ^5.4.0   |
+| `react-router-dom`        | ^7.0.2   |
+| `react-simple-typewriter` | ^5.0.1   |
+| `react-tooltip`           | ^5.28.0  |
+| `sort-by`                 | ^1.2.0   |
+| `sweetalert2`             | ^11.14.5 |
+
+### **Development Dependencies**
+
+| Package                       | Version  |
+| ----------------------------- | -------- |
+| `@eslint/js`                  | ^9.15.0  |
+| `@types/react`                | ^18.3.12 |
+| `@types/react-dom`            | ^18.3.1  |
+| `@vitejs/plugin-react`        | ^4.3.4   |
+| `autoprefixer`                | ^10.4.20 |
+| `daisyui`                     | ^4.12.14 |
+| `eslint`                      | ^9.15.0  |
+| `eslint-plugin-react`         | ^7.37.2  |
+| `eslint-plugin-react-hooks`   | ^5.0.0   |
+| `eslint-plugin-react-refresh` | ^0.4.14  |
+| `globals`                     | ^15.12.0 |
+| `postcss`                     | ^8.4.49  |
+| `tailwindcss`                 | ^3.4.15  |
+| `vite`                        | ^6.0.1   |
+
+## **Development**
+
+To contribute or modify the project:
+
+1. **Fork and Clone** the repository.
+2. Create a new branch:
+   ```sh
+   git checkout -b feature-branch
+   ```
+3. Make changes and commit:
+   ```sh
+   git commit -m "Added new feature"
+   ```
+4. Push the changes:
+   ```sh
+   git push origin feature-branch
+   ```
+5. Open a Pull Request for review.
+
+## **License**
+
+This project is licensed under the [MIT License](LICENSE).
