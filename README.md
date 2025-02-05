@@ -1,6 +1,6 @@
 # **Crowd Cube**
 
-Crowd Cube is a user-friendly donation platform that enables users to create, manage, and contribute to fundraising campaigns. With an intuitive interface, secure authentication, and a robust set of features, Crowd Cube makes fundraising accessible for everyone. [view](https://crowd-1342c.firebaseapp.com/)
+Crowd Cube is a user-friendly donation platform that enables users to create, manage, and contribute to fundraising campaigns. With an intuitive interface, secure authentication, and a robust set of features, Crowd Cube makes fundraising accessible for everyone. [view](https://crowd-1342c.firebaseapp.com)
 
 ## **Table of Contents**
 
@@ -97,8 +97,6 @@ VITE_messagingSenderId=YOUR_FIREBASE_MESSAGING_SENDER_ID
 VITE_appId=YOUR_FIREBASE_APP_ID
 ```
 
-Replace the placeholder values with your actual Firebase project credentials.
-
 ## **Usage**
 
 - **View campaigns**: Browse all active campaigns and select one to donate.
@@ -147,25 +145,6 @@ Replace the placeholder values with your actual Firebase project credentials.
 | `postcss`                     | ^8.4.49  |
 | `tailwindcss`                 | ^3.4.15  |
 | `vite`                        | ^6.0.1   |
-
-## **Development**
-
-To contribute or modify the project:
-
-1. **Fork and Clone** the repository.
-2. Create a new branch:
-   ```sh
-   git checkout -b feature-branch
-   ```
-3. Make changes and commit:
-   ```sh
-   git commit -m "Added new feature"
-   ```
-4. Push the changes:
-   ```sh
-   git push origin feature-branch
-   ```
-5. Open a Pull Request for review.
 
 ## **License**
 
